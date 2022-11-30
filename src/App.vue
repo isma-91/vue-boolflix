@@ -1,7 +1,10 @@
 <template>
   <div>
-    <HeaderPage />
-    <MainPage />
+    <HeaderPage @search="search"/>
+    <MainPage
+    :arrFilms="arrFilms"
+    :arrSeries="arrSeries"
+    />
   </div>
 </template>
 
@@ -29,34 +32,42 @@ export default {
     };
   },
 
-  created() {
-    //  Popoliamo array dei Film
-    axios.get(this.urlApiMovies, {
-      params: {
-        api_key: this.apiKey,
-        query: this.query,
-        language: this.language,
-      },
-    })
-      .then((axiosResult) => {
-        // console.log(axiosResult);
-        this.arrFilms = axiosResult.data.results;
-        console.log(this.arrFilms);
-      });
+  methods: {
+    // Ascoltando l'emit dell'header eseguiamo questa funzione per dare il valore ricevuto dall'emit
+    // passato per argomento, e lo diamo alla variabile 'query'
+    // che poi ci servirà per la nostra ricerca nell'API
+    search(data) {
+      this.query = data;
+      console.log(`info catturate ${data}`);
 
-    // Popoliamo array delle serie tv
-    axios.get(this.urlApiSeries, {
-      params: {
-        api_key: this.apiKey,
-        query: this.query,
-        language: this.language,
-      },
-    })
-      .then((axiosResult) => {
+      //  Popoliamo array dei Film
+      axios.get(this.urlApiMovies, {
+        params: {
+          api_key: this.apiKey,
+          query: this.query,
+          language: this.language,
+        },
+      })
+        .then((axiosResult) => {
         // console.log(axiosResult);
-        this.arrSeries = axiosResult.data.results;
-        console.log(this.arrSeries);
-      });
+          this.arrFilms = axiosResult.data.results;
+          console.log(this.arrFilms);
+        });
+
+      // Popoliamo array delle serie tv
+      axios.get(this.urlApiSeries, {
+        params: {
+          api_key: this.apiKey,
+          query: this.query,
+          language: this.language,
+        },
+      })
+        .then((axiosResult) => {
+        // console.log(axiosResult);
+          this.arrSeries = axiosResult.data.results;
+          console.log(this.arrSeries);
+        });
+    },
   },
 };
 </script>

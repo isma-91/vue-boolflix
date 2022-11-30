@@ -3,15 +3,16 @@
     <div class="logo">
       <h1>BOOLFLIX</h1>
     </div>
-    <label for="search">
-      <input
-      v-model="query"
-      type="text"
-      placeholder="Cerca il tuo fil preferito..."
-      @keyup.enter="$emit()"
-      >
+    <form @submit.prevent="$emit('search', query)">
+      <label  for="search">
+        <input
+        v-model="query"
+        type="text"
+        placeholder="Cerca il tuo fil preferito..."
+        >
+      </label>
       <button>Cerca</button>
-    </label>
+    </form>
   </header>
 </template>
 

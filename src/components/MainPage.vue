@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <FilmsPage />
-    <SeriesPage />
+  <div class="container">
+    <FilmsPage :arrFilms="arrFilms" />
+    <SeriesPage :arrSeries="arrSeries" />
   </div>
 </template>
 
@@ -16,11 +16,16 @@ export default {
     SeriesPage,
   },
   props: {
-
+    arrFilms: Array,
+    arrSeries: Array,
   },
 };
 </script>
 
 <style lang="scss" scoped>
 
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
 </style>
