@@ -78,7 +78,12 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: rgb(46, 46, 80);
+}
+
+ul {
+  list-style: none;
 }
 </style>
