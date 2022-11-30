@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Serie TV</h2>
     <CardPage />
   </div>
 </template>

@@ -4,7 +4,12 @@
       <h1>BOOLFLIX</h1>
     </div>
     <label for="search">
-      <input type="text" placeholder="Cerca il tuo fil preferito...">
+      <input
+      v-model="query"
+      type="text"
+      placeholder="Cerca il tuo fil preferito..."
+      @keyup.enter="$emit()"
+      >
       <button>Cerca</button>
     </label>
   </header>
@@ -13,6 +18,11 @@
 <script>
 export default {
   name: 'HeaderPage',
+  data() {
+    return {
+      query: '',
+    };
+  },
 };
 </script>
 

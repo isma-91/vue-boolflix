@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Film</h2>
     <CardPage />
   </div>
 </template>
