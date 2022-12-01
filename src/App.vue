@@ -12,7 +12,9 @@
 import axios from 'axios';
 import HeaderPage from '@/components/HeaderPage.vue';
 import MainPage from '@/components/MainPage.vue';
+// import FlagIcon from 'vue-flag-icon';
 
+// App.use(FlagIcon);
 export default {
   name: 'App',
   components: {

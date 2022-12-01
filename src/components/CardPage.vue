@@ -10,6 +10,7 @@
       </li>
       <li class="language">
         Lingua: <span>{{ language }}</span>
+        `<Flag code="NL" />`
       </li>
 
       <li class="rating">
@@ -20,7 +21,7 @@
           </div>
           <div class="inner-stars-container">
             <div class="inner-stars" v-for="i in realRating" :key="i">
-              <font-awesome-icon icon="fa-solid fa-star-of-life"/>
+              <font-awesome-icon icon="fa-solid fa-star"/>
             </div>
           </div>
         </div>
@@ -34,6 +35,8 @@
 </template>
 
 <script>
+import Flag from 'vue-flagpack';
+
 export default {
   name: 'CardPage',
   props: {
@@ -44,6 +47,9 @@ export default {
     rating: Number,
     overview: String,
   },
+  comments: {
+    Flag,
+  },
   data() {
     return {
       realRating: Math.floor(this.rating / 2),
@@ -51,6 +57,11 @@ export default {
       // Usare il math floor perche altrimenti i valori con la virgola rompono tutto e non fa visualizzare tuttt i film/telefim
     };
   },
+  // methods: {
+  //   getFlags() {
+  //     this.language.replace('it');
+  //   },
+  // },
   created() {
     console.log(this.realRating);
   },
@@ -81,7 +92,7 @@ export default {
     overflow-y: auto;
     top: 0px;
     left: 0px;
-    transform: translateX(-100%);
+    // transform: translateX(-100%);
     z-index: 1;
 
     li{
