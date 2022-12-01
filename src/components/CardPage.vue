@@ -37,18 +37,20 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  background-color: black;
   position: relative;
   border: 2px solid red;
   width: calc((100% - 1rem * 2) / 3);
+  overflow: hidden;
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
   }
   .infos {
     height: 100%;
     color: white;
+    background-color: black;
     font-size: 25px;
     font-weight: bold;
     width: 100%;
@@ -57,7 +59,8 @@ export default {
     overflow-y: auto;
     top: 0px;
     left: 0px;
-    display: none;
+    transform: translateX(-100%);
+    z-index: 1;
 
     li{
       margin: .7rem 0;
@@ -74,10 +77,11 @@ export default {
   cursor: pointer;
 }
 .card:hover img{
-display: none;
+opacity: 0.2;
 }
 
 .card:hover .infos {
-  display: block;
+  transition: all 0.5s ease;
+  transform: translateX(0);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="arrFilms">
     <h2>Film</h2>
     <div class="container">
       <CardPage
