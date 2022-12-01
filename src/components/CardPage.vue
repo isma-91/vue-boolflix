@@ -10,7 +10,6 @@
       </li>
       <li class="language">
         Lingua: <span>{{ language }}</span>
-        <Flag code="NL" />
       </li>
 
       <li class="rating">
@@ -91,6 +90,9 @@ export default {
     padding: 1rem;
     position: absolute;
     overflow-y: auto;
+    -ms-overflow-style: none;  /* Hide Scrollbar IE and Edge */
+    scrollbar-width: none; /* Hide Scrollbar Firefox */
+
     top: 0px;
     left: 0px;
     transform: translateX(-100%);
@@ -115,6 +117,11 @@ export default {
       color: yellow;
     }
   }
+}
+
+/* Hide scrollbar Chrome, Safari and Opera */
+.infos::-webkit-scrollbar {
+    display: none;
 }
 
 .card:hover {
