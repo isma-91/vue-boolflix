@@ -10,18 +10,19 @@
       </li>
       <li class="language">
         Lingua: <span>{{ language }}</span>
-        `<Flag code="NL" />`
+        <Flag code="NL" />
       </li>
 
       <li class="rating">
-        Voto: <span>{{ rating }}</span>
+        <!-- Voto: <span>{{ rating }}</span> -->
+        Voto:
         <div class="outer-stars-container">
           <div class="outer-stars" v-for="num in 5" :key="num">
-            <font-awesome-icon icon="fa-regular fa-star"/>
+            <font-awesome-icon icon="fa-regular fa-star" class="star"/>
           </div>
           <div class="inner-stars-container">
             <div class="inner-stars" v-for="i in realRating" :key="i">
-              <font-awesome-icon icon="fa-solid fa-star"/>
+              <font-awesome-icon icon="fa-solid fa-star" class="star"/>
             </div>
           </div>
         </div>
@@ -35,7 +36,6 @@
 </template>
 
 <script>
-import Flag from 'vue-flagpack';
 
 export default {
   name: 'CardPage',
@@ -47,8 +47,8 @@ export default {
     rating: Number,
     overview: String,
   },
-  comments: {
-    Flag,
+  components: {
+
   },
   data() {
     return {
@@ -103,6 +103,14 @@ export default {
     font-size: 20px;
     color: lightgray;
     };
+    .rating {
+      display: flex;
+    }
+
+    .outer-stars-container{
+      margin-left: 1rem;
+      color: yellow;
+    }
   }
 }
 
