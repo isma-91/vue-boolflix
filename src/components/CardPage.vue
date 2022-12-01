@@ -14,13 +14,14 @@
 
       <li class="rating">
         Voto: <span>{{ rating }}</span>
-        <div class="outer-stars">
-          <font-awesome-icon icon="fa-regular fa-star" v-for="num in 5" :key="num" />
-          <div class="inner-stars">
-            <font-awesome-icon icon="fa-solid fa-star-of-life"
-            v-for="num in realRating"
-            :key="num"
-            class="stars"/>
+        <div class="outer-stars-container">
+          <div class="outer-stars" v-for="num in 5" :key="num">
+            <font-awesome-icon icon="fa-regular fa-star"/>
+          </div>
+          <div class="inner-stars-container">
+            <div class="inner-stars" v-for="i in realRating" :key="i">
+              <font-awesome-icon icon="fa-solid fa-star-of-life"/>
+            </div>
           </div>
         </div>
       </li>
@@ -45,7 +46,9 @@ export default {
   },
   data() {
     return {
-      realRating: this.rating / 2,
+      realRating: Math.floor(this.rating / 2),
+      // eslint-disable-next-line
+      // Usare il math floor perche altrimenti i valori con la virgola rompono tutto e non fa visualizzare tuttt i film/telefim
     };
   },
   created() {
@@ -57,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
-  border: 2px solid red;
+  border: 2px solid white;
   width: calc((100% - 1rem * 2) / 3);
   overflow: hidden;
   img {
@@ -104,10 +107,11 @@ opacity: 0.2;
   transform: translateX(0);
 }
 
-.outer-stars {
+.outer-stars-container {
+  display: flex;
 position: relative;
 }
-.inner-stars {
+.inner-stars-container {
   display: flex;
   flex-wrap: nowrap;
   flex: 0 0 0;
@@ -116,8 +120,12 @@ position: relative;
   top: 0;
   left: 0;
   width: 100%;
-//     .stars{
-//       display: inline-block;
-//     }
+
+// eslint-disable-next-line (non funge)
+// volevo provare il metodo della width, per fare apparire le stelline,
+//trasformando il rating in percentuale con la quale alungare
+//o accorciare il contenitore delle stelline piene così da farle apparire
+//a seconda della width del genitore guidata dal rating... come fare?
+
 }
 </style>
