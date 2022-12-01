@@ -11,9 +11,20 @@
       <li class="language">
         Lingua: <span>{{ language }}</span>
       </li>
+
       <li class="rating">
         Voto: <span>{{ rating }}</span>
+        <div class="outer-stars">
+          <font-awesome-icon icon="fa-regular fa-star" v-for="num in 5" :key="num" />
+          <div class="inner-stars">
+            <font-awesome-icon icon="fa-solid fa-star-of-life"
+            v-for="num in realRating"
+            :key="num"
+            class="stars"/>
+          </div>
+        </div>
       </li>
+
       <li class="overview">
         Overview: <span>{{ overview }}</span>
       </li>
@@ -31,6 +42,14 @@ export default {
     language: String,
     rating: Number,
     overview: String,
+  },
+  data() {
+    return {
+      realRating: this.rating / 2,
+    };
+  },
+  created() {
+    console.log(this.realRating);
   },
 };
 </script>
@@ -83,5 +102,22 @@ opacity: 0.2;
 .card:hover .infos {
   transition: all 0.5s ease;
   transform: translateX(0);
+}
+
+.outer-stars {
+position: relative;
+}
+.inner-stars {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 0 0 0;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+//     .stars{
+//       display: inline-block;
+//     }
 }
 </style>
