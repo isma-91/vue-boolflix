@@ -34,8 +34,28 @@ header {
   justify-content: space-around;
   height: 100px;
   background-color: black;
+
     h1 {
+      font-size: 60px;
       color: red;
+      cursor: pointer;
+    }
+
+    input {
+      font-size: 25px;
+      padding: 0.5rem;
+    }
+
+    button {
+      cursor: pointer;
+      margin-left: 1.5rem;
+      color: white;
+      background-color: red;
+      border: 2px solid white;
+      border-radius: 30px;
+      font-size: 25px;
+      padding: .5rem;
+
     }
 }
 </style>

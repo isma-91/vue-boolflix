@@ -37,9 +37,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h2 {
+  font-size: 50px;
+  color: white;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 </style>

@@ -75,14 +75,20 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;600;700&display=swap');
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+html {
+  font-family: 'Asap Condensed', sans-serif;
+}
+
 body {
-  background-color: rgb(46, 46, 80);
+  background-color: rgb(27, 27, 48);
 }
 
 ul {

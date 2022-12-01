@@ -70,14 +70,15 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  border-radius: 30px;
   position: relative;
-  border: 2px solid white;
   width: calc((100% - 1rem * 2) / 3);
   overflow: hidden;
+  box-shadow: 0 0 8px white;
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
   }
   .infos {
@@ -92,7 +93,8 @@ export default {
     overflow-y: auto;
     top: 0px;
     left: 0px;
-    // transform: translateX(-100%);
+    transform: translateX(-100%);
+    opacity: 0;
     z-index: 1;
 
     li{
@@ -102,6 +104,7 @@ export default {
     font-weight: 400;
     font-size: 20px;
     color: lightgray;
+    margin-left: 5px;
     };
     .rating {
       display: flex;
@@ -123,6 +126,7 @@ opacity: 0.2;
 
 .card:hover .infos {
   transition: all 0.5s ease;
+  opacity: 1;
   transform: translateX(0);
 }
 

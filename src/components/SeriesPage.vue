@@ -6,8 +6,8 @@
       v-for="serie in arrSeries"
       :key="serie.id"
       :imgUrl="`${imgPrefix}${serie.poster_path}`"
-      :title1="serie.title"
-      :title2="serie.original_title"
+      :title1="serie.name"
+      :title2="serie.original_name"
       :language="serie.original_language"
       :rating="serie.vote_average"
       :overview="serie.overview"/>
@@ -37,9 +37,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+h2 {
+  font-size: 50px;
+  color: white;
+}
 .container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
 }
 </style>
