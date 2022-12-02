@@ -9,7 +9,8 @@
         Titolo Originale: <span>{{title2}}</span>
       </li>
       <li class="language">
-        Lingua: <span>{{ language }}</span>
+        <!-- Lingua: <span>{{ language }}</span> -->
+        Lingua: <lang-flag :iso="language" />
       </li>
 
       <li class="rating">
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+import LangFlag from 'vue-lang-code-flags';
 
 export default {
   name: 'CardPage',
@@ -47,7 +49,7 @@ export default {
     overview: String,
   },
   components: {
-
+    LangFlag,
   },
   data() {
     return {
@@ -95,8 +97,8 @@ export default {
 
     top: 0px;
     left: 0px;
-    transform: translateX(-100%);
-    opacity: 0;
+    // transform: translateX(-100%);
+    // opacity: 0;
     z-index: 1;
 
     li{
@@ -108,6 +110,10 @@ export default {
     color: lightgray;
     margin-left: 5px;
     };
+
+    .flag-icon{
+      font-size: 25px;
+    }
     .rating {
       display: flex;
     }
