@@ -5,7 +5,7 @@
       <CardPage
       v-for="serie in arrSeries"
       :key="serie.id"
-      :imgUrl="`${imgPrefix}${serie.poster_path}`"
+      :imgUrl="getImage(serie.poster_path)"
       :title1="serie.name"
       :title2="serie.original_name"
       :language="serie.original_language"
@@ -32,6 +32,14 @@ export default {
     return {
       imgPrefix: 'https://image.tmdb.org/t/p/original',
     };
+  },
+  methods: {
+    getImage(path) {
+      if (path) {
+        return this.imgPrefix + path;
+      }
+      return null;
+    },
   },
 };
 </script>

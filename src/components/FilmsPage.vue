@@ -5,7 +5,7 @@
       <CardPage
     v-for="film in arrFilms"
     :key="film.id"
-    :imgUrl="`${imgPrefix}${film.poster_path}`"
+    :imgUrl="getImage(film.poster_path)"
     :title1="film.title"
     :title2="film.original_title"
     :language="film.original_language"
@@ -32,6 +32,14 @@ export default {
     return {
       imgPrefix: 'https://image.tmdb.org/t/p/w342',
     };
+  },
+  methods: {
+    getImage(path) {
+      if (path) {
+        return this.imgPrefix + path;
+      }
+      return null;
+    },
   },
 };
 </script>

@@ -1,6 +1,9 @@
 <template>
   <div class="card">
-      <img :src="imgUrl" :alt="title2">
+      <img v-if="imgUrl"
+      :src="imgUrl" :alt="title2">
+      <img v-else
+      src="@/assets/img/default-img.png" :alt="title2">
     <ul class="infos">
       <li class="title">
         TITOLO: <span>{{ title1 }}</span>
@@ -53,7 +56,7 @@ export default {
   },
   data() {
     return {
-      realRating: Math.floor(this.rating / 2),
+      realRating: Math.ceil(this.rating / 2),
       // eslint-disable-next-line
       // Usare il math floor perche altrimenti i valori con la virgola rompono tutto e non fa visualizzare tuttt i film/telefim
     };
@@ -97,8 +100,8 @@ export default {
 
     top: 0px;
     left: 0px;
-    // transform: translateX(-100%);
-    // opacity: 0;
+    transform: translateX(-100%);
+    opacity: 0;
     z-index: 1;
 
     li{
